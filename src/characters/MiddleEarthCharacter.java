@@ -33,7 +33,6 @@ public abstract class MiddleEarthCharacter
 	public abstract String getRace();
 	
 	/** prints out the Name, Health and power of a character 
-	 * 
 	 */
 	public void displayInfo() {
 		System.out.println(this.toString());
