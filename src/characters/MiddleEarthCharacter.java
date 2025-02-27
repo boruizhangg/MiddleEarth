@@ -6,6 +6,12 @@ public abstract class MiddleEarthCharacter
 	private double health;
 	private double power;
 	
+	public MiddleEarthCharacter(String name, double health, double power) {
+		super();
+		this.name = name;
+		this.health = health;
+		this.power = power;
+	}
 	public String getName() {
 		return name;
 	}
