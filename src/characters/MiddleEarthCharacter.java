@@ -27,45 +27,64 @@ public abstract class MiddleEarthCharacter
 	 */
 	public abstract Boolean attack(MiddleEarthCharacter target);
 	
-	/**This is an abstract method to get the race of a character
+	/** This is an abstract method to get the race of a character
 	 * @return returns the race name of the character as a string 
 	 */
 	public abstract String getRace();
 	
+	/** prints out the Name, Health and power of a character 
+	 */
+	public void displayInfo() {
+		System.out.println(this.toString());
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	/** toString method returns name health and power, used in displayInfo 
+	 *
+	 */
+	@Override
+	public String toString() {
+		return "Name: " + getName() + "Health: " + getHealth() + "Power: " + getPower();
+	}
+
+	/** getter for name 
+	 * @return name of character
+	 */
 	public String getName() {
 		return name;
 	}
+	
+	/** setter for name
+	 * @param name of character
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	/** Getter for health
+	 * @return health
+	 */
 	public double getHealth() {
 		return health;
 	}
+	
+	/** Setter for health
+	 * @param health
+	 */
 	public void setHealth(double health) {
 		this.health = health;
 	}
+	
+	/** Getter for power
+	 * @return power
+	 */
 	public double getPower() {
 		return power;
 	}
+	
+	/** Setter for power
+	 * @param power
+	 */
 	public void setPower(double power) {
 		this.power = power;
 	}
