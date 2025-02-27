@@ -35,9 +35,6 @@ public class CharacterManager {
 			
 		}
 		
-		public MiddleEarthCharacter getCharacter(String name)
-		{
-			
-		}
+		
 		
 }
