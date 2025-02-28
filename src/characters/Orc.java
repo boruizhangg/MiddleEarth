@@ -2,6 +2,7 @@ package characters;
 
 public class Orc extends MiddleEarthCharacter{
 
+	// declare character from user
 	public Orc(String name, double health, double power) 
 	{
 		super(name, health, power);

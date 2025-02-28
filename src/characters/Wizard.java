@@ -2,6 +2,7 @@ package characters;
 
 public class Wizard extends MiddleEarthCharacter{
 
+	// declare character
 	public Wizard(String name, double health, double power) 
 	{
 		super(name, health, power);
