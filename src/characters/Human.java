@@ -2,6 +2,7 @@ package characters;
 
 public class Human extends MiddleEarthCharacter{
 	
+	//declare totalDamage
 	public double totalDamage; 
 	
 	public Human(String name, double health, double power) 
