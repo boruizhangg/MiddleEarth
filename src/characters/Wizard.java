@@ -1,7 +1,9 @@
 package characters;
 
 public class Wizard extends MiddleEarthCharacter{
-
+	
+	public double totalDamage; 
+	public double baseDamage = 2;
 	// declare character
 	public Wizard(String name, double health, double power) 
 	{
@@ -12,18 +14,33 @@ public class Wizard extends MiddleEarthCharacter{
 	@Override
 	public Boolean attack(MiddleEarthCharacter target)
 	{
-		if(getRace() == "Dwarf" || getRace() == "dwarf")
+		double targetHealth = target.getHealth();
+		if(target.getRace().equals("Dwarf")||target.getRace().equals("dwarf"))
 		{
-			System.out.println("1.5 x damage against Dwarf");
+			totalDamage = baseDamage * 1.5;
+			targetHealth = targetHealth - totalDamage;
+			return true;
 		}
-		return null;
+		else if(target.getRace().equals( "Human") || target.getRace() == "human")
+		{
+			return false;
+		}
+		else if(target.getRace().equals("Wizard") || target.getRace().equals("wizard"))
+		{
+			return false;
+		}
+		else
+		{
+			targetHealth = targetHealth - baseDamage;
+			return true;
+		}
 	}
 
 	@Override
 	public String getRace() 
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return "Wizard";
 	}
 
 }
