@@ -2,6 +2,8 @@ package characters;
 
 public class Orc extends MiddleEarthCharacter{
 
+	public double totalDamage; 
+	public double baseDamage = 2;
 	// declare character from user
 	public Orc(String name, double health, double power) 
 	{
@@ -12,18 +14,34 @@ public class Orc extends MiddleEarthCharacter{
 	@Override
 	public Boolean attack(MiddleEarthCharacter target)
 	{
-		if(getRace() == "Human" || getRace() == "human")
+		double targetHealth = target.getHealth();
+		if(target.getRace().equals("Human")||target.getRace().equals("human"))
 		{
-			System.out.println("1.5 x damage against Human");
+			totalDamage = baseDamage * 1.5;
+			targetHealth = targetHealth - totalDamage;
+			return true;
 		}
-		return null;
+		else if(target.getRace().equals( "Orc") || target.getRace() == "orc")
+		{
+			return false;
+		}
+		else if(target.getRace().equals("Elf") || target.getRace().equals("elf"))
+		{
+			return false;
+		}
+		else
+		{
+			targetHealth = targetHealth - baseDamage;
+			return true;
+		}
+
 	}
 
 	@Override
 	public String getRace() 
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return "Orc";
 	}
 
 }
