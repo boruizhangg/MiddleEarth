@@ -28,7 +28,11 @@ public class Human extends MiddleEarthCharacter{
 		{
 			return false;
 		}
-		return true;
+		else
+		{
+			targetHealth = targetHealth - baseDamage;
+			return true;
+		}
 	}
 
 	@Override
