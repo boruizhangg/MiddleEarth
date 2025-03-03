@@ -6,7 +6,7 @@ public abstract class MiddleEarthCharacter
 	private double health;
 	private double power;
 	
-	
+
 	
 	/** Constructor for MiddleEarthCharacter
 	 * @param name is the name of the character
@@ -17,7 +17,7 @@ public abstract class MiddleEarthCharacter
 		super();
 		this.name = name;
 		this.health = health;
-		this.power = power;
+		this.power = power; 
 	}
 	
 	/** This is an abstract method for when a character attacks another character
