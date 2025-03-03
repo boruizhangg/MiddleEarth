@@ -18,7 +18,7 @@ public class Elf extends MiddleEarthCharacter{
 	/**
 	 * Parameterized method that performs an attack on a target character.
 	 * Elves deal 1.5x damage to Orcs, normal damage to Humans and Wizards, 
-	 * and no damage to Elves or Dwarfs
+	 * and no damage to Elves or Dwarfs.
 	 * @param target
 	 * 		The character being attacked
 	 * @return 
@@ -39,7 +39,7 @@ public class Elf extends MiddleEarthCharacter{
 	}
 
 	/**
-	 * Method that returns the race of the character
+	 * Method that returns the race of the character.
 	 */
 	@Override
 	public String getRace() {
