@@ -6,7 +6,6 @@ public abstract class MiddleEarthCharacter
 	private double health;
 	private double power;
 	
-
 	
 	/** Constructor for MiddleEarthCharacter
 	 * @param name is the name of the character
