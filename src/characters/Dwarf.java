@@ -22,8 +22,7 @@ public class Dwarf extends MiddleEarthCharacter{
 
 	@Override
 	public String getRace() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Dwarf";
 	}
 
 }
