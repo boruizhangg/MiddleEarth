@@ -22,7 +22,7 @@ public class Elf extends MiddleEarthCharacter{
 
 	@Override
 	public String getRace() {
-		return null;
+		return "Elf";
 	}
 
 }
