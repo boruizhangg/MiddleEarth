@@ -4,18 +4,24 @@ public class Elf extends MiddleEarthCharacter{
 
 	public Elf(String name, double health, double power) {
 		super(name, health, power);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public Boolean attack(MiddleEarthCharacter target) {
-		// TODO Auto-generated method stub
-		return null;
+		if(target instanceof Elf || target instanceof Dwarf){
+			return false;
+		}
+		else if(target instanceof Orc) {
+			target.setHealth(target.getHealth() - (1.5 * this.getPower()));
+		}
+		else {
+			target.setHealth(target.getHealth() - this.getPower());
+		}
+		return true;
 	}
 
 	@Override
 	public String getRace() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
