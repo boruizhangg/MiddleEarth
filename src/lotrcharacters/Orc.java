@@ -4,12 +4,30 @@ public class Orc extends MiddleEarthCharacter{
 
 	public double totalDamage; 
 	public double baseDamage = 2;
-	// declare character from user
+	
+	/**
+	 * Constructor for Orc
+	 * @param name
+	 * 		Name of the Orc
+	 * @param health
+	 * 		Health points of the Orc
+	 * @param power
+	 * 		Attack Power of the Orc
+	 */
 	public Orc(String name, double health, double power) 
 	{
 		super(name, health, power);
 		// TODO Auto-generated constructor stub
 	}
+	/**
+	 * Parameterized method that performs and attack on a target character.
+	 * Human deal 1.5x damage to Human, normal damage to Wizard and Dwarf, 
+	 * and no damage to Elf or Orc.
+	 * @param target
+	 * 		The character being attacked
+	 * @return 
+	 * 		True if the attack is successful, false otherwise
+	 */
 
 	@Override
 	public Boolean attack(MiddleEarthCharacter target)
@@ -40,11 +58,14 @@ public class Orc extends MiddleEarthCharacter{
 		}
 
 	}
+	
+	/**
+	 *  method use to return the race of character
+	 */
 
 	@Override
 	public String getRace() 
 	{
-		// TODO Auto-generated method stub
 		return "Orc";
 	}
 
