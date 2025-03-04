@@ -2,6 +2,9 @@ package management;
 
 import lotrcharacters.MiddleEarthCharacter;
 
+/**
+ * 
+ */
 public class CharacterManager {
 	 	private MiddleEarthCharacter[] characters;
 		private int size;
@@ -95,6 +98,7 @@ public class CharacterManager {
 				if(characters[i] == character)
 				{
 					flag = true;
+					break;
 				}
 			}
 			
@@ -120,7 +124,7 @@ public class CharacterManager {
 				character.setPower(power);
 				flag = true;
 			}
-			if(flag)
+			if(flag == true)
 			{
 				System.out.println("Character update applied");
 				return true;
@@ -133,7 +137,39 @@ public class CharacterManager {
 		}
 		
 		
-		
+		/**This method deletes a character and shifts the rest of the characters to fill the gap
+		 * @param character you want to delete
+		 * @return true if deletion was a success
+		 * 		   false if the deletion failed, either of illegal input or the character cannot be found
+		 */
+		public boolean deleteCharacter(MiddleEarthCharacter character)
+		{
+			if(characters == null)return false;
+			boolean flag = false;
+			int track = 0;
+			for(int i = 0; i < size; i++)
+			{
+				if(characters[i] == character)
+				{
+					track = i;
+					flag = true;
+					break;
+				}
+			}
+			if(flag == false)
+			{
+				System.out.println("Character cannot be found, no deletion made");
+				return false;
+			}
+			
+			for(int i = track; i < size - 1; i++)
+			{
+				characters[i] = characters[i + 1];
+			}
+			characters[size - 1] = null;
+			size--;
+			return true;
+		}
 		
 		
 		public void setSize(int size) {
