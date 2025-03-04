@@ -20,11 +20,15 @@ public class Human extends MiddleEarthCharacter{
 			targetHealth = targetHealth - totalDamage;
 			return true;
 		}
-		else if(target.getRace().equals( "Orc") || target.getRace() == "orc")
+		else if(target.getRace().equals( "Orc") || target.getRace().equals("orc"))
 		{
 			return false;
 		}
 		else if(target.getRace().equals("Human") || target.getRace().equals("human"))
+		{
+			return false;
+		}
+		else if(target.getRace().equals(null))
 		{
 			return false;
 		}

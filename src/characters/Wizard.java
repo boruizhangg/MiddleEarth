@@ -21,11 +21,15 @@ public class Wizard extends MiddleEarthCharacter{
 			targetHealth = targetHealth - totalDamage;
 			return true;
 		}
-		else if(target.getRace().equals( "Human") || target.getRace() == "human")
+		else if(target.getRace().equals( "Human") || target.getRace().equals("human")  )
 		{
 			return false;
 		}
 		else if(target.getRace().equals("Wizard") || target.getRace().equals("wizard"))
+		{
+			return false;
+		}
+		else if(target.getRace().equals(null))
 		{
 			return false;
 		}

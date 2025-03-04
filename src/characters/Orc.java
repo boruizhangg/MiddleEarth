@@ -21,11 +21,15 @@ public class Orc extends MiddleEarthCharacter{
 			targetHealth = targetHealth - totalDamage;
 			return true;
 		}
-		else if(target.getRace().equals( "Orc") || target.getRace() == "orc")
+		else if(target.getRace().equals( "Orc") || target.getRace().equals("orc") )
 		{
 			return false;
 		}
 		else if(target.getRace().equals("Elf") || target.getRace().equals("elf"))
+		{
+			return false;
+		}
+		else if(target.getRace().equals(null))
 		{
 			return false;
 		}
