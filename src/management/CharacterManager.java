@@ -184,7 +184,7 @@ public class CharacterManager {
 			this.characters = characters;
 		}
 
-		private MiddleEarthCharacter[] characters;
+
 		
 		
 		
