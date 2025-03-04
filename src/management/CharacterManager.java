@@ -3,7 +3,7 @@ package management;
 import lotrcharacters.MiddleEarthCharacter;
 
 public class CharacterManager {
-	 	private MiddleEarthCharacter[] character;
+	 	private MiddleEarthCharacter[] characters;
 		private int size;
 		public int getSize() {
 			return size;
@@ -13,7 +13,7 @@ public class CharacterManager {
 		/**Default constructor of the character manager with array of size 8
 		 */
 		public CharacterManager() {
-			this.character = new MiddleEarthCharacter[8];
+			this.characters = new MiddleEarthCharacter[8];
 			this.size = 0;
 			
 		}
@@ -35,21 +35,21 @@ public class CharacterManager {
 				System.out.println("Cannot add a duplicate character");
 				return false;
 			}
-			if(character.length == size)
+			if(characters.length == size)
 			{
-				MiddleEarthCharacter[] characterExpansion = new MiddleEarthCharacter[character.length *2];
+				MiddleEarthCharacter[] characterExpansion = new MiddleEarthCharacter[characters.length *2];
 				for(int i = 0; i < size; i++)
 				{
-					characterExpansion[i] = character[i];
+					characterExpansion[i] = characters[i];
 				}
-				character = characterExpansion;
-				character[size++] = c;
+				characters = characterExpansion;
+				characters[size++] = c;
 				System.out.println("Character Addition successful");
 				return true;
 			}
 			else
 			{
-				character[size++] = c;
+				characters[size++] = c;
 				System.out.println("Character Addition successful");
 				return true;
 			}
@@ -70,25 +70,66 @@ public class CharacterManager {
 			}
 			for(int i = 0; i < size; i++)
 			{
-				if(character[i] != null && character[i].getName().equals(name))
+				if(characters[i] != null && characters[i].getName().equals(name))
 				{
-					return character[i];
+					return characters[i];
 				}
 			}
 			return null;
 		}
 		
-		public boolean updateCharacter (MiddleEarthCharacter character, String name, int health, int power)
+		/**Updates character based on the parameter input using the setters of MiddleEarthCharacter
+		 * @param character you want to update
+		 * @param name updates name for character
+		 * @param health updates the health for character
+		 * @param power updates power for character
+		 * @return true if there is a change
+		 * 		   false if there is no change or illegal inputs or character not found
+		 */
+		public boolean updateCharacter (MiddleEarthCharacter character, String name, double health, double power)
 		{
-			if(character == null)return false;
+			if(character == null || name == null || health <= 0 || power <= 0)return false;
 			boolean flag = false;
 			for(int i = 0; i < size; i++)
 			{
-				
+				if(characters[i] == character)
+				{
+					flag = true;
+				}
 			}
 			
-			return false;
+			if(flag == false)
+			{
+				System.out.println("Could not find the character to update");
+				return false;
+			}
 			
+			flag = false;
+			if(!name.equals(character.getName()))
+			{
+				character.setName(name);
+				flag = true;
+			}
+			if(health != character.getHealth())
+			{
+				character.setHealth(health);
+				flag = true;
+			}
+			if(power != character.getPower())
+			{
+				character.setPower(power);
+				flag = true;
+			}
+			if(flag)
+			{
+				System.out.println("Character update applied");
+				return true;
+			}
+			else
+			{
+				System.out.println("No updates were made");
+				return false;
+			}
 		}
 		
 		
@@ -100,11 +141,11 @@ public class CharacterManager {
 		}
 
 		public MiddleEarthCharacter[] getCharacters() {
-			return character;
+			return characters;
 		}
 
 		public void setCharacters(MiddleEarthCharacter[] characters) {
-			this.character = characters;
+			this.characters = characters;
 		}
 
 		private MiddleEarthCharacter[] characters;
