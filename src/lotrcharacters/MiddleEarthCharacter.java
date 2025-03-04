@@ -1,4 +1,4 @@
-package characters;
+package lotrcharacters;
 
 public abstract class MiddleEarthCharacter 
 {

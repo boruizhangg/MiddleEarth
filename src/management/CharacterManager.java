@@ -1,6 +1,6 @@
 package management;
 
-import characters.MiddleEarthCharacter;
+import lotrcharacters.MiddleEarthCharacter;
 
 public class CharacterManager {
 	 	private MiddleEarthCharacter[] character;
@@ -30,26 +30,69 @@ public class CharacterManager {
 				System.out.println("Illegal input for character field, character addition failed");
 				return false;
 			}
-			if(characters.length == size)
+			if(getCharacter(c.getName()) != null)
 			{
-				MiddleEarthCharacter[] characterExpansion = new MiddleEarthCharacter[size*2];
+				System.out.println("Cannot add a duplicate character");
+				return false;
+			}
+			if(character.length == size)
+			{
+				MiddleEarthCharacter[] characterExpansion = new MiddleEarthCharacter[character.length *2];
 				for(int i = 0; i < size; i++)
 				{
-					characterExpansion[i] = characters[i];
+					characterExpansion[i] = character[i];
 				}
-				characters = characterExpansion;
-				characters[size++] = c;
+				character = characterExpansion;
+				character[size++] = c;
 				System.out.println("Character Addition successful");
 				return true;
 			}
 			else
 			{
-				characters[size++] = c;
+				character[size++] = c;
+				System.out.println("Character Addition successful");
 				return true;
 			}
 			
 			
 		}
+		
+		/**This searches for a character with a specific name
+		 * @param name is the name of the character 
+		 * @return null if the character is not found
+		 * 		   the character with matching name
+		 */
+		public MiddleEarthCharacter getCharacter(String name)
+		{
+			if(name == null)
+			{
+				return null;
+			}
+			for(int i = 0; i < size; i++)
+			{
+				if(character[i] != null && character[i].getName().equals(name))
+				{
+					return character[i];
+				}
+			}
+			return null;
+		}
+		
+		public boolean updateCharacter (MiddleEarthCharacter character, String name, int health, int power)
+		{
+			if(character == null)return false;
+			boolean flag = false;
+			for(int i = 0; i < size; i++)
+			{
+				
+			}
+			
+			return false;
+			
+		}
+		
+		
+		
 		
 		
 		public void setSize(int size) {
@@ -57,11 +100,11 @@ public class CharacterManager {
 		}
 
 		public MiddleEarthCharacter[] getCharacters() {
-			return characters;
+			return character;
 		}
 
 		public void setCharacters(MiddleEarthCharacter[] characters) {
-			this.characters = characters;
+			this.character = characters;
 		}
 
 		private MiddleEarthCharacter[] characters;

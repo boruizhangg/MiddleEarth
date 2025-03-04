@@ -1,35 +1,35 @@
-package characters;
+package lotrcharacters;
 
-public class Dwarf extends MiddleEarthCharacter{
+public class Elf extends MiddleEarthCharacter{
 
 	/**
-	 * Constructor for Dwarf
+	 * Constructor for Elf
 	 * @param name
-	 * 		Name of the Dwarf
+	 * 		Name of the Elf
 	 * @param health
-	 * 		Health points of the Dwarf
+	 * 		Health points of the Elf
 	 * @param power
-	 * 		Attack power of the Dwarf
+	 * 		Attack Power of the Elf
 	 */
-	public Dwarf(String name, double health, double power) {
+	public Elf(String name, double health, double power) {
 		super(name, health, power);
 	}
-
+	
 	/**
-	 * Parameterized method that performs and attack on a target character.
-	 * Dwarfs deal 1.5x damage to Elves, normal damage to Humans and Orcs, 
-	 * and no damage to Dwarfs or Wizards.
+	 * Parameterized method that performs an attack on a target character.
+	 * Elves deal 1.5x damage to Orcs, normal damage to Humans and Wizards, 
+	 * and no damage to Elves or Dwarfs.
 	 * @param target
 	 * 		The character being attacked
 	 * @return 
 	 * 		True if the attack is successful, false otherwise
-	 */
+	 */	 
 	@Override
 	public Boolean attack(MiddleEarthCharacter target) {
-		if(target instanceof Dwarf || target instanceof Wizard){
+		if(target instanceof Elf || target instanceof Dwarf){
 			return false;
 		}
-		else if(target instanceof Elf) {
+		else if(target instanceof Orc) {
 			target.setHealth(target.getHealth() - (1.5 * this.getPower()));
 		}
 		else {
@@ -43,7 +43,7 @@ public class Dwarf extends MiddleEarthCharacter{
 	 */
 	@Override
 	public String getRace() {
-		return "Dwarf";
+		return "Elf";
 	}
 
 }

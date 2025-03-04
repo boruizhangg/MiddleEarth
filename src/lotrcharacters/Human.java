@@ -1,4 +1,4 @@
-package characters;
+package lotrcharacters;
 
 public class Human extends MiddleEarthCharacter{
 	// declare damage

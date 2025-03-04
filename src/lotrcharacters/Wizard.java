@@ -1,11 +1,11 @@
-package characters;
+package lotrcharacters;
 
-public class Orc extends MiddleEarthCharacter{
-
+public class Wizard extends MiddleEarthCharacter{
+	
 	public double totalDamage; 
 	public double baseDamage = 2;
-	// declare character from user
-	public Orc(String name, double health, double power) 
+	// declare character
+	public Wizard(String name, double health, double power) 
 	{
 		super(name, health, power);
 		// TODO Auto-generated constructor stub
@@ -15,17 +15,17 @@ public class Orc extends MiddleEarthCharacter{
 	public Boolean attack(MiddleEarthCharacter target)
 	{
 		double targetHealth = target.getHealth();
-		if(target.getRace().equals("Human")||target.getRace().equals("human"))
+		if(target.getRace().equals("Dwarf")||target.getRace().equals("dwarf"))
 		{
 			totalDamage = baseDamage * 1.5;
 			targetHealth = targetHealth - totalDamage;
 			return true;
 		}
-		else if(target.getRace().equals( "Orc") || target.getRace() == "orc")
+		else if(target.getRace().equals( "Human") || target.getRace() == "human")
 		{
 			return false;
 		}
-		else if(target.getRace().equals("Elf") || target.getRace().equals("elf"))
+		else if(target.getRace().equals("Wizard") || target.getRace().equals("wizard"))
 		{
 			return false;
 		}
@@ -34,14 +34,13 @@ public class Orc extends MiddleEarthCharacter{
 			targetHealth = targetHealth - baseDamage;
 			return true;
 		}
-
 	}
 
 	@Override
 	public String getRace() 
 	{
 		// TODO Auto-generated method stub
-		return "Orc";
+		return "Wizard";
 	}
 
 }
