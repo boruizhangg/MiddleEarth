@@ -30,26 +30,53 @@ public class CharacterManager {
 				System.out.println("Illegal input for character field, character addition failed");
 				return false;
 			}
-			if(characters.length == size)
+			if(getCharacter(c.getName()) != null)
 			{
-				MiddleEarthCharacter[] characterExpansion = new MiddleEarthCharacter[size*2];
+				System.out.println("Cannot add a duplicate character");
+				return false;
+			}
+			if(character.length == size)
+			{
+				MiddleEarthCharacter[] characterExpansion = new MiddleEarthCharacter[character.length *2];
 				for(int i = 0; i < size; i++)
 				{
-					characterExpansion[i] = characters[i];
+					characterExpansion[i] = character[i];
 				}
-				characters = characterExpansion;
-				characters[size++] = c;
+				character = characterExpansion;
+				character[size++] = c;
 				System.out.println("Character Addition successful");
 				return true;
 			}
 			else
 			{
-				characters[size++] = c;
+				character[size++] = c;
+				System.out.println("Character Addition successful");
 				return true;
 			}
 			
 			
 		}
+		
+		public MiddleEarthCharacter getCharacter(String name)
+		{
+			if(name == null)
+			{
+				return null;
+			}
+			for(int i = 0; i < size; i++)
+			{
+				if(character[i] != null && character[i].getName().equals(name))
+				{
+					return character[i];
+				}
+			}
+			return null;
+		}
+		
+		
+		
+		
+		
 		
 		
 		public void setSize(int size) {
@@ -57,11 +84,11 @@ public class CharacterManager {
 		}
 
 		public MiddleEarthCharacter[] getCharacters() {
-			return characters;
+			return character;
 		}
 
 		public void setCharacters(MiddleEarthCharacter[] characters) {
-			this.characters = characters;
+			this.character = characters;
 		}
 
 		private MiddleEarthCharacter[] characters;
