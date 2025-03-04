@@ -1,6 +1,6 @@
 package management;
 
-import characters.MiddleEarthCharacter;
+import lotrcharacters.MiddleEarthCharacter;
 
 public class CharacterManager {
 	 	private MiddleEarthCharacter[] character;
@@ -57,6 +57,11 @@ public class CharacterManager {
 			
 		}
 		
+		/**This searches for a character with a specific name
+		 * @param name is the name of the character 
+		 * @return null if the character is not found
+		 * 		   the character with matching name
+		 */
 		public MiddleEarthCharacter getCharacter(String name)
 		{
 			if(name == null)
@@ -73,7 +78,18 @@ public class CharacterManager {
 			return null;
 		}
 		
-		
+		public boolean updateCharacter (MiddleEarthCharacter character, String name, int health, int power)
+		{
+			if(character == null)return false;
+			boolean flag = false;
+			for(int i = 0; i < size; i++)
+			{
+				
+			}
+			
+			return false;
+			
+		}
 		
 		
 		
