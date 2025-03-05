@@ -18,25 +18,41 @@ public class MiddleEarthApp {
 		Scanner scanner = new Scanner(System.in);
 	    CharacterManager cm = MiddleEarthCouncil.getInstance().getCharacterManager();
 	    
-	    while (true) {
-	    	System.out.println("=========================");
+	    boolean status = true;
+	    while (status) {
+	    	
+	    	System.out.println("\n=========================");
 	    	System.out.println("1. Add a new character");
 	    	System.out.println("2. View all characters");
 	        System.out.println("3. Update a character");
 	        System.out.println("4. Delete a character");
 	        System.out.println("5. Execute all characters’ attack actions");
 	        System.out.println("6. Exit");
-	        System.out.println("Enter your choice: ");
-	        System.out.println("=========================");
-            int choice = scanner.nextInt();
+	        System.out.println("========================="); 
+	        System.out.print("Enter your choice: ");
+	   	
+	        //added part to catch when user input is invalid
+            int choice;
+            try
+            {
+            	choice = scanner.nextInt();
+            	scanner.nextLine();
+            }	catch (Exception e)
+           
+            {
+            	System.out.println("Please input only the valid numbers.");
+            	scanner.nextLine();
+            	continue;
+            }
 
+            
             switch (choice) {
                 case 1:
                     // Add new character
                     System.out.print("Enter character type (Elf, Dwarf, Human, Orc, Wizard): ");
-                    String type = scanner.next();
+                    String type = scanner.nextLine();
                     System.out.print("Enter character name: ");
-                    String name = scanner.next();
+                    String name = scanner.nextLine();
                     System.out.print("Enter character health: ");
                     double health = scanner.nextDouble();
                     System.out.print("Enter character power: ");
@@ -52,7 +68,7 @@ public class MiddleEarthApp {
                         default: System.out.println("Invalid character type."); continue;
                     }
                     cm.addCharacter(newCharacter);
-                    System.out.println("Character added!");
+           
                     break;
                 case 2:
                     // View all characters
@@ -61,31 +77,29 @@ public class MiddleEarthApp {
                 case 3:
                     // Update character
                 	System.out.print("Enter character name to update: ");
-                    String nameToUpdate = scanner.next();
+                    String nameToUpdate = scanner.nextLine();
                     MiddleEarthCharacter characterToUpdate = cm.getCharacter(nameToUpdate);
                     if (characterToUpdate != null) {
                     	System.out.println("Enter new Name: ");
-                    	String newName = scanner.next();
+                    	String newName = scanner.nextLine();
                         System.out.print("Enter new health: ");
                         double newHealth = scanner.nextDouble();
                         System.out.print("Enter new power: ");
                         double newPower = scanner.nextDouble();
-                        cm.updateCharacter(characterToUpdate, newName, (int) newHealth, (int) newPower);
-                        System.out.println("Character updated!");
-                    } else {
-                        System.out.println("Character not found.");
+                        cm.updateCharacter(characterToUpdate, newName, newHealth, newPower);                   
                     }
                     break;
                 case 4:
                     // Delete character
                     System.out.print("Enter character name to delete: ");
-                    String nameToDelete = scanner.next();
+                    String nameToDelete = scanner.nextLine();
                     MiddleEarthCharacter characterToDelete = cm.getCharacter(nameToDelete);
                     if (characterToDelete != null) {
                         cm.deleteCharacter(characterToDelete);
                         System.out.println("Character deleted!");
                     } else {
                         System.out.println("Character not found.");
+                        continue;
                     }
                     break;
                 case 5:
@@ -95,7 +109,7 @@ public class MiddleEarthApp {
                             if (i != j) {
                                 MiddleEarthCharacter attacker = cm.getCharacters()[i];
                                 MiddleEarthCharacter target = cm.getCharacters()[j];
-                                System.out.println(attacker.getName() + " attacks " + target.getName());
+                                System.out.println("\n" + attacker.getName() + " attacks " + target.getName());
                                 boolean attacked = attacker.attack(target);
                                 if (attacked) {
                                     System.out.println(target.getName() + " has been attacked by " + attacker.getName() + ". Remaining Health: " + target.getHealth());
