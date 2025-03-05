@@ -43,7 +43,7 @@ public abstract class MiddleEarthCharacter
 	 */
 	@Override
 	public String toString() {
-		return "Name: " + getName() + "Health: " + getHealth() + "Power: " + getPower();
+		return " Name: " + getName() + " Health: " + getHealth() + " Power: " + getPower();
 	}
 
 	/** getter for name 
