@@ -32,7 +32,11 @@ public class Human extends MiddleEarthCharacter{
 	public Boolean attack(MiddleEarthCharacter target) 
 	{
 		double targetHealth = target.getHealth();
-		if(target.getRace().equals("Wizard") || target.getRace().equals("wizard") )
+		if(target.getRace().equals(null))
+		{
+			return false;
+		}
+		else if(target.getRace().equals("Wizard") || target.getRace().equals("wizard") )
 		{
 			totalDamage = baseDamage * 1.5;
 			targetHealth = targetHealth - totalDamage;
@@ -43,10 +47,6 @@ public class Human extends MiddleEarthCharacter{
 			return false;
 		}
 		else if(target.getRace().equals("Human") || target.getRace().equals("human"))
-		{
-			return false;
-		}
-		else if(target.getRace().equals(null))
 		{
 			return false;
 		}

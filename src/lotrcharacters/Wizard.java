@@ -33,7 +33,11 @@ public class Wizard extends MiddleEarthCharacter{
 	public Boolean attack(MiddleEarthCharacter target)
 	{
 		double targetHealth = target.getHealth();
-		if(target.getRace().equals("Dwarf")||target.getRace().equals("dwarf"))
+		if(target.getRace().equals(null))
+		{
+			return false;
+		}
+		else if(target.getRace().equals("Dwarf")||target.getRace().equals("dwarf"))
 		{
 			totalDamage = baseDamage * 1.5;
 			targetHealth = targetHealth - totalDamage;
@@ -47,11 +51,7 @@ public class Wizard extends MiddleEarthCharacter{
 		{
 			return false;
 		}
-		else if(target.getRace().equals(null))
-		{
-			return false;
-		}
-		else
+		else 
 		{
 			targetHealth = targetHealth - baseDamage;
 			return true;
