@@ -3,7 +3,6 @@ package lotrcharacters;
 public class Orc extends MiddleEarthCharacter{
 
 	public double totalDamage; 
-	public double baseDamage = 2;
 	
 	/**
 	 * Constructor for Orc
@@ -33,13 +32,14 @@ public class Orc extends MiddleEarthCharacter{
 	public Boolean attack(MiddleEarthCharacter target)
 	{
 		double targetHealth = target.getHealth();
+		double power = this.getPower();
 		if(target.getRace().equals(null))
 		{
 			return false;
 		}
 		else if(target.getRace().equals("Human")||target.getRace().equals("human"))
 		{
-			totalDamage = baseDamage * 1.5;
+			totalDamage = power * 1.5;
 			targetHealth = targetHealth - totalDamage;
 			return true;
 		}
@@ -53,7 +53,7 @@ public class Orc extends MiddleEarthCharacter{
 		}
 		else 
 		{
-			targetHealth = targetHealth - baseDamage;
+			targetHealth = targetHealth - power;
 			return true;
 		}
 

@@ -3,7 +3,6 @@ package lotrcharacters;
 public class Wizard extends MiddleEarthCharacter{
 	
 	public double totalDamage; 
-	public double baseDamage = 2;
 	/**
 	 * Constructor for Wizard
 	 * @param name
@@ -33,13 +32,14 @@ public class Wizard extends MiddleEarthCharacter{
 	public Boolean attack(MiddleEarthCharacter target)
 	{
 		double targetHealth = target.getHealth();
+		double power = this.getPower();
 		if(target.getRace().equals(null))
 		{
 			return false;
 		}
 		else if(target.getRace().equals("Dwarf")||target.getRace().equals("dwarf"))
 		{
-			totalDamage = baseDamage * 1.5;
+			totalDamage = power * 1.5;
 			targetHealth = targetHealth - totalDamage;
 			return true;
 		}
@@ -53,7 +53,7 @@ public class Wizard extends MiddleEarthCharacter{
 		}
 		else 
 		{
-			targetHealth = targetHealth - baseDamage;
+			targetHealth = targetHealth - power;
 			return true;
 		}
 	}
