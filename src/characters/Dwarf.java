@@ -1,4 +1,4 @@
-package characters;
+package lotrcharacters;
 
 public class Dwarf extends MiddleEarthCharacter{
 
