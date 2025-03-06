@@ -23,7 +23,7 @@ public class Orc extends MiddleEarthCharacter{
 	 * Human deal 1.5x damage to Human, normal damage to Wizard and Dwarf, 
 	 * and no damage to Elf or Orc.
 	 * @param target
-	 * 		The character being attacked
+	 * 		The character being attacked.
 	 * @return 
 	 * 		True if the attack is successful, false otherwise
 	 */

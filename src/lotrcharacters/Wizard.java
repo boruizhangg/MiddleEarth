@@ -23,7 +23,7 @@ public class Wizard extends MiddleEarthCharacter{
 	 * Human deal 1.5x damage to Dwarf, normal damage to Elf and Orc, 
 	 * and no damage to Human or Wizard.
 	 * @param target
-	 * 		The character being attacked
+	 * 		The character being attacked.
 	 * @return 
 	 * 		True if the attack is successful, false otherwise
 	 */
