@@ -24,7 +24,7 @@ public abstract class MiddleEarthCharacter
 	 * @return true if the attack is successful and reduced target’s health, 
 	 * 		   false if the attack was ineffective, or attack was against their own kin.
 	 */
-	public abstract boolean attack(MiddleEarthCharacter target);
+	public abstract Boolean attack(MiddleEarthCharacter target);
 	
 	/** This is an abstract method to get the race of a character
 	 * @return returns the race name of the character as a string 
