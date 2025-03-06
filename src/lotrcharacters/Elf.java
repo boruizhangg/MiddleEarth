@@ -26,6 +26,9 @@ public class Elf extends MiddleEarthCharacter{
 	 */	 
 	@Override
 	public Boolean attack(MiddleEarthCharacter target) {
+		if(target == null){
+			return false;
+		}
 		if(target instanceof Elf || target instanceof Dwarf){
 			return false;
 		}
