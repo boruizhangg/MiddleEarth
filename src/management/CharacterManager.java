@@ -91,7 +91,7 @@ public class CharacterManager {
 		 */
 		public boolean updateCharacter (MiddleEarthCharacter character, String name, double health, double power)
 		{
-			if(character == null || name == null || health <= 0 || power <= 0)return false;
+			if(character == null || name == null || health < 0 || power < 0)return false;
 			boolean flag = false;
 			for(int i = 0; i < size; i++)
 			{
@@ -144,7 +144,7 @@ public class CharacterManager {
 		 */
 		public boolean deleteCharacter(MiddleEarthCharacter character)
 		{
-			if(characters == null)return false;
+			if(character == null)return false;
 			boolean flag = false;
 			int track = 0;
 			for(int i = 0; i < size; i++)
@@ -170,6 +170,26 @@ public class CharacterManager {
 			size--;
 			return true;
 		}
+		
+		/** Displays all the characters in the array 
+		 * 
+		 */
+		public void displayAllCharacters()
+		{
+			if(size == 0)
+			{
+				System.out.println("There are currently no characters to display.");
+				return;
+			}
+			for (int i = 0; i < size; i++)
+			{
+				characters[i].displayInfo();
+			}
+		}
+		
+		
+		
+		
 		
 		
 		public void setSize(int size) {
