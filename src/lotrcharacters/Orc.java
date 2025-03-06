@@ -2,7 +2,6 @@ package lotrcharacters;
 
 public class Orc extends MiddleEarthCharacter{
 
-	public double totalDamage; 
 	
 	/**
 	 * Constructor for Orc
@@ -23,7 +22,7 @@ public class Orc extends MiddleEarthCharacter{
 	 * Human deal 1.5x damage to Human, normal damage to Wizard and Dwarf, 
 	 * and no damage to Elf or Orc.
 	 * @param target
-	 * 		The character being attacked
+	 * 		The character being attacked.
 	 * @return 
 	 * 		True if the attack is successful, false otherwise
 	 */
@@ -31,29 +30,26 @@ public class Orc extends MiddleEarthCharacter{
 	@Override
 	public Boolean attack(MiddleEarthCharacter target)
 	{
-		double targetHealth = target.getHealth();
-		double power = this.getPower();
 		if(target.getRace().equals(null))
 		{
 			return false;
 		}
-		else if(target.getRace().equals("Human")||target.getRace().equals("human"))
+		else if(target.getRace().equals("Human"))
 		{
-			totalDamage = power * 1.5;
-			targetHealth = targetHealth - totalDamage;
+			target.setHealth(target.getHealth() - (1.5 * this.getPower()));
 			return true;
 		}
-		else if(target.getRace().equals( "Orc") || target.getRace().equals("orc"))
+		else if(target.getRace().equals( "Orc"))
 		{
 			return false;
 		}
-		else if(target.getRace().equals("Elf") || target.getRace().equals("elf"))
+		else if(target.getRace().equals("Elf") )
 		{
 			return false;
 		}
 		else 
 		{
-			targetHealth = targetHealth - power;
+			target.setHealth(target.getHealth() - this.getPower());
 			return true;
 		}
 
