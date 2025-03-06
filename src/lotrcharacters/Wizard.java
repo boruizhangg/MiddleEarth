@@ -36,7 +36,7 @@ public class Wizard extends MiddleEarthCharacter{
 		}
 		else if(target.getRace().equals("Dwarf"))
 		{
-			target.setHealth(target.getHealth() - (1.5 * this.getPower()));
+			target.setHealth(Math.max(0, target.getHealth()-(1.5 * this.getPower())));
 			return true;
 		}
 		else if(target.getRace().equals( "Human"))
@@ -49,7 +49,7 @@ public class Wizard extends MiddleEarthCharacter{
 		}
 		else 
 		{
-			target.setHealth(target.getHealth() - this.getPower());
+			target.setHealth(Math.max(0, target.getHealth()-this.getPower()));
 			return true;
 		}
 	}
