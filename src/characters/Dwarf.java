@@ -26,6 +26,9 @@ public class Dwarf extends MiddleEarthCharacter{
 	 */
 	@Override
 	public Boolean attack(MiddleEarthCharacter target) {
+		if(target == null){
+			return false;
+		}
 		if(target instanceof Dwarf || target instanceof Wizard){
 			return false;
 		}
