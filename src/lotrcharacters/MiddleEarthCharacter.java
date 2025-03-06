@@ -13,7 +13,7 @@ public abstract class MiddleEarthCharacter
 	 * @param power indicates damage points the character inflicts
 	 */
 	public MiddleEarthCharacter(String name, double health, double power) {
-		super();
+		
 		this.name = name;
 		this.health = health;
 		this.power = power; 
@@ -24,7 +24,7 @@ public abstract class MiddleEarthCharacter
 	 * @return true if the attack is successful and reduced target’s health, 
 	 * 		   false if the attack was ineffective, or attack was against their own kin.
 	 */
-	public abstract Boolean attack(MiddleEarthCharacter target);
+	public abstract boolean attack(MiddleEarthCharacter target);
 	
 	/** This is an abstract method to get the race of a character
 	 * @return returns the race name of the character as a string 
