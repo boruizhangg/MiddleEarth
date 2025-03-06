@@ -37,7 +37,7 @@ public class Human extends MiddleEarthCharacter{
 		}
 		else if(target.getRace().equals("Wizard"))
 		{
-			target.setHealth(target.getHealth() - (1.5 * this.getPower()));
+			target.setHealth(Math.max(0, target.getHealth()-(1.5 * this.getPower())));
 			return true;
 		}
 		else if(target.getRace().equals( "Orc"))
@@ -50,7 +50,7 @@ public class Human extends MiddleEarthCharacter{
 		}
 		else
 		{
-			target.setHealth(target.getHealth() - this.getPower());
+			target.setHealth(Math.max(0, target.getHealth()-this.getPower()));
 			return true;
 		}
 	}

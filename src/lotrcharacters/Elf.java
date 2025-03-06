@@ -30,10 +30,10 @@ public class Elf extends MiddleEarthCharacter{
 			return false;
 		}
 		else if(target instanceof Orc) {
-			target.setHealth(target.getHealth() - (1.5 * this.getPower()));
+			target.setHealth(Math.max(0, target.getHealth()-(1.5 * this.getPower())));
 		}
 		else {
-			target.setHealth(target.getHealth() - this.getPower());
+			target.setHealth(Math.max(0, target.getHealth()-this.getPower()));
 		}
 		return true;
 	}
